@@ -6,7 +6,28 @@ class Boid{
     }
 
     // allign boids with local boids around it
-    allign (boid)
+    align (boids){
+        let perception = 100;
+        let average = createVector();
+        let total = 0;
+        for(let other of boids){
+            let d = dist(
+                this.position.x,
+                this.position.y, 
+                other.position.x, 
+                other.position.y
+            );
+
+            if(d < perception && other != this){
+                average.add(other.velocity);
+                total++;
+            }
+        }
+        if(total > 0){
+            average.div(total);
+        }
+    }
+
     update(){
         this.position.add(this.velocity);
         this.velocity.add(this.acceleration);
