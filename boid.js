@@ -1,14 +1,14 @@
 class Boid{
     constructor(){
-        this.position = createVector(width/2, height/2);
+        this.position = createVector(random(width), random(height));
         this.velocity = p5.Vector.random2D();
         this.acceleration = createVector();
     }
 
     // allign boids with local boids around it
-    align (boids){
+    align(boids){
         let perception = 100;
-        let average = createVector();
+        let steering = createVector();
         let total = 0;
         for(let other of boids){
             let d = dist(
@@ -19,13 +19,21 @@ class Boid{
             );
 
             if(d < perception && other != this){
-                average.add(other.velocity);
+                steering.add(other.velocity);
                 total++;
             }
         }
+  
         if(total > 0){
-            average.div(total);
+            steering.div(total);
+            steering.sub(this.velocity);
         }
+        return steering;
+    }
+
+    flock(boid){
+        let alignment = align(boids);
+        this.acceleration = alignment;
     }
 
     update(){
