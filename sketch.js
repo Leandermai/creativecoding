@@ -4,6 +4,8 @@ function setup() {
     createCanvas(640, 360);
     frameRate(60);
 
+    lp = loadImage("assets/lpimage");
+
     for (let i = 0; i < 100; i++) {
         flock.push(new Boid());
     }
