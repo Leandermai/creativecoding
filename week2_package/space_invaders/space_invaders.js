@@ -4,9 +4,9 @@ let invaderPixels = 7;
 
 let colors = [];
 
-function drawRect(i, j) {
-    let pixel_size = width / invaderPixels;
-    rect(pixel_size * j, pixel_size * i, pixel_size, pixel_size);
+function drawRect(column, row) {
+    let pixelSize = width / invaderPixels;
+    rect(pixelSize * row, pixelSize * column, pixelSize, pixelSize);
 }
 
 function setup() {
