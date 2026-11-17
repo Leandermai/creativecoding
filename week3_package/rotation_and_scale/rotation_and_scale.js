@@ -1,20 +1,25 @@
-let iterations = 100;
-let scale = 1;
 
 function setup(){
     createCanvas(1080, 720);
     rectMode(CENTER);
-    angleMode(DEGREES);
+    //angleMode(DEGREES);
     frameRate(30);
 }
 
 function draw(){
-    background(220);
-    translate(canvasWidth / 2, canvasHeight / 2);
-    let angle = frameCount * 0.5;
+    background(255);
+    translate(1080 / 2, 720 / 2);
+
+    let iterations = 100;
+    
+
+    text(frameCount, 50, 50);
+    let angle = frameCount * 0.1;
+
     for(let i = 0; i < iterations; i++){
-        scale(0.8);
-        rotate(angle);
-        rect(0, 0, 1080, 720); 
+        rotate(frameCount * 0.001);
+        scale(0.95);
+        fill(255);
+        rect(0, 0, 1000, 700);
     }
 }
