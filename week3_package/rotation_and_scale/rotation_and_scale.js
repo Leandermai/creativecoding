@@ -11,12 +11,10 @@ function draw(){
     translate(1080 / 2, 720 / 2);
 
     let iterations = 100;
-    
-
-    text(frameCount, 50, 50);
     let angle = frameCount * 0.1;
 
     for(let i = 0; i < iterations; i++){
+        //get rotated idiot
         rotate(frameCount * 0.001);
         scale(0.95);
         fill(255);
