@@ -14,13 +14,15 @@ function draw(){
     let pmX = pmouseX - centerX;
     let pmY = pmouseY - centerY;
 
-    translate(centerX, centerY);
-    for(let i = 0; i < symmetry; i++){
-        push();
-        rotate(radians(360 / symmetry));
-        line(mX, mY, pmX, pmY);
-        scale(-1, 1);
-        line(mX, mY, pmX, pmY);
-        pop();
+    translate(centerX, centerY)
+    if(mouseIsPressed){
+        for(let i = 0; i < symmetry; i++){
+            push();
+            rotate(radians(360 / symmetry));
+            line(mX, mY, pmX, pmY);
+            scale(-1, 1);
+            line(mX, mY, pmX, pmY);
+            pop();
+        }
     }
 }
